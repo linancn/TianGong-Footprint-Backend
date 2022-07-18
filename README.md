@@ -1,4 +1,4 @@
-# TianGongLCABackend [![build](https://github.com/linancn/TianGongFootprintBackend/actions/workflows/build.yaml/badge.svg)](https://github.com/linancn/TianGongFootprintBackend/actions/workflows/build.yaml) [![publish](https://github.com/linancn/TianGongFootprintBackend/actions/workflows/publish.yaml/badge.svg)](https://github.com/linancn/TianGongFootprintBackend/actions/workflows/publish.yaml)
+# TianGongLCABackend [![build](https://github.com/linancn/TianGong-Footprint-Backend/actions/workflows/build.yaml/badge.svg)](https://github.com/linancn/TianGong-Footprint-Backend/actions/workflows/build.yaml) [![publish](https://github.com/linancn/TianGong-Footprint-Backend/actions/workflows/publish.yaml/badge.svg)](https://github.com/linancn/TianGong-Footprint-Backend/actions/workflows/publish.yaml)
 
 ## Environment Prepare
 
