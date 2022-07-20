@@ -48,12 +48,12 @@ public class FactorMaterialServiceImpl extends ServiceImpl<FactorMaterialMapper,
         List<SelectItemData> records = new ArrayList<SelectItemData>();
         QueryWrapper<FactorMaterial> queryWrapper = new QueryWrapper<FactorMaterial>();
         queryWrapper.eq("material_category", category);
-        queryWrapper.select("material_type, id").orderByAsc("material_type");
+        queryWrapper.select("material_type").orderByAsc("material_type");
         List<FactorMaterial> factorMaterials = factorMaterialMapper.selectList(queryWrapper);
         for (FactorMaterial f : factorMaterials) {
             SelectItemData d = new SelectItemData();
             d.setLabel(f.getMaterialType());
-            d.setValue(f.getId().toString());
+            d.setValue(f.getMaterialType());
             records.add(d);
         }
         return records;
