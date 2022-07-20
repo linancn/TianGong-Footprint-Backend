@@ -1,0 +1,15 @@
+# Service Config
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# DataSource Config
+spring:
+  profiles:
+    active: test
+
+mybatis-plus:
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
