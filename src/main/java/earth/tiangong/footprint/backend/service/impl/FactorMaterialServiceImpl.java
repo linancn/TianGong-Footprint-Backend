@@ -27,8 +27,6 @@ import org.springframework.stereotype.Service;
 public class FactorMaterialServiceImpl extends ServiceImpl<FactorMaterialMapper, FactorMaterial> implements IFactorMaterialService {
     @Autowired
     FactorMaterialMapper factorMaterialMapper;
-    // public String[] categorySelectItemColumns = {
-    // ColumnNameUtil.toDatabaseName("materialCategory") };
 
     public List<SelectItemData> getMaterialCategorySelectItems() {
         List<SelectItemData> records = new ArrayList<SelectItemData>();
