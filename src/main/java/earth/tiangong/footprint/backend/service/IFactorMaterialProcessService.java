@@ -19,4 +19,7 @@ public interface IFactorMaterialProcessService extends IService<FactorMaterialPr
     List<SelectItemData> getProcessCategorySelectItems(String materialType);
 
     List<SelectItemData> getProcessTypeSelectItems(String materialType, String processCategory);
+
+    FactorMaterialProcess getByProcessType(String materialType, String processCategory,String processType);
+
 }

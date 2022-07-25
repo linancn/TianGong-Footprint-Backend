@@ -57,4 +57,15 @@ public class FactorMaterialProcessServiceImpl extends ServiceImpl<FactorMaterial
         }
         return records;
     }
+
+    public FactorMaterialProcess getByProcessType(String materialType, String processCategory, String processType) {
+        QueryWrapper<FactorMaterialProcess> queryWrapper = new QueryWrapper<FactorMaterialProcess>();
+        queryWrapper.eq("material_type", materialType);
+        queryWrapper.eq("process_category", processCategory);
+        queryWrapper.eq("process_type", processType);
+
+        FactorMaterialProcess data = factorMaterialProcessMapper.selectOne(queryWrapper);
+
+        return data;
+    }
 }

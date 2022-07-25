@@ -40,4 +40,11 @@ public class FactorTransportationServiceImpl extends ServiceImpl<FactorTransport
         }
         return records;
     }
+
+    public FactorTransportation getByTransportMode(String transportMode){
+        QueryWrapper<FactorTransportation> queryWrapper = new QueryWrapper<FactorTransportation>();
+        queryWrapper.eq("transport_mode", transportMode);
+        FactorTransportation data = factorTransportationMapper.selectOne(queryWrapper);
+        return data;
+    }
 }

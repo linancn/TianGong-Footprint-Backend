@@ -1,7 +1,8 @@
 package earth.tiangong.footprint.backend.mapper;
 
-import earth.tiangong.footprint.backend.entity.FactorElectricity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import earth.tiangong.footprint.backend.entity.FactorElectricity;
 
 /**
  * <p>

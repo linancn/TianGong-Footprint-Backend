@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author TianGongFootprint
@@ -17,5 +17,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IFactorMaterialService extends IService<FactorMaterial> {
     List<SelectItemData> getMaterialCategorySelectItems();
+
     List<SelectItemData> getMaterialTypeSelectItems(String category);
+
+    FactorMaterial getByMaterialType(String materialType);
 }

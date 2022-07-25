@@ -17,4 +17,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IFactorTransportationService extends IService<FactorTransportation> {
     List<SelectItemData> getTransportModeSelectItems();
+
+    FactorTransportation getByTransportMode(String transportMode);
 }

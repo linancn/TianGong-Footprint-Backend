@@ -56,4 +56,11 @@ public class FactorMaterialServiceImpl extends ServiceImpl<FactorMaterialMapper,
         }
         return records;
     }
+
+    public FactorMaterial getByMaterialType(String materialType){
+        QueryWrapper<FactorMaterial> queryWrapper = new QueryWrapper<FactorMaterial>();
+        queryWrapper.eq("material_type", materialType);
+        FactorMaterial data = factorMaterialMapper.selectOne(queryWrapper);
+        return data;
+    }
 }

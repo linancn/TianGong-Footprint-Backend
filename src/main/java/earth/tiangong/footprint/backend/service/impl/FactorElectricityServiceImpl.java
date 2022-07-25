@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author TianGongFootprint
@@ -27,7 +27,7 @@ public class FactorElectricityServiceImpl extends ServiceImpl<FactorElectricityM
     @Autowired
     FactorElectricityMapper factorElectricityMapper;
 
-    public List<SelectItemData> getElectricitySourceSelectItems(){
+    public List<SelectItemData> getElectricitySourceSelectItems() {
         List<SelectItemData> records = new ArrayList<SelectItemData>();
         QueryWrapper<FactorElectricity> queryWrapper = new QueryWrapper<FactorElectricity>();
         queryWrapper.select("Distinct electricity_source").orderByAsc("electricity_source");
@@ -39,5 +39,15 @@ public class FactorElectricityServiceImpl extends ServiceImpl<FactorElectricityM
             records.add(sid);
         }
         return records;
+    }
+
+    public FactorElectricity getByRegionAndSource(String region, String electricitySource) {
+        QueryWrapper<FactorElectricity> queryWrapper = new QueryWrapper<FactorElectricity>();
+        queryWrapper.eq("region", region);
+        queryWrapper.eq("electricity_source", electricitySource);
+
+        FactorElectricity data = factorElectricityMapper.selectOne(queryWrapper);
+
+        return data;
     }
 }
