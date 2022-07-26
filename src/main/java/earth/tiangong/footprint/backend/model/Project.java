@@ -13,6 +13,8 @@ public class Project {
 
     private String location;
 
+    private Double totalMass;
+
     private String electricitySource;
 
     private Double electricity;
@@ -64,6 +66,14 @@ public class Project {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Double getTotalMass() {
+        return totalMass;
+    }
+
+    public void setTotalMass(Double totalMass) {
+        this.totalMass = totalMass;
     }
 
     public String getElectricitySource() {

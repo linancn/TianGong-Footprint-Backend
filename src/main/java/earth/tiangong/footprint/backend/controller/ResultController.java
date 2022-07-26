@@ -47,8 +47,10 @@ public class ResultController {
         FactorElectricity edata = iFactorElectricityService.getByRegionAndSource(data.getLocation(), data.getElectricitySource());
         data.setElectricityCo2e(data.getElectricity() * data.getRatio() / 100 * edata.getFactor());
 
+        data.setTotalMass((double) 0);
         data.setSumSupplyCo2e((double) 0);
         for (Supply s : data.getSupply()) {
+            data.setTotalMass(data.getTotalMass() + s.getTotalMass());
             FactorMaterial sdata = iFactorMaterialService.getByMaterialType(s.getMaterialType());
             s.setCo2e(s.getTotalMass() * sdata.getFactor());
             s.setSumProcessingCo2e((double) 0);
@@ -60,7 +62,7 @@ public class ResultController {
             s.setSumTransportationCo2e((double) 0);
             for (Transportation t : s.getTransportation()) {
                 FactorTransportation tdata = iFactorTransportationService.getByTransportMode(t.getTransportMode());
-                t.setCo2e(t.getDistance() * tdata.getFactor());
+                t.setCo2e(s.getTotalMass() / 1000000 * t.getSupplierPercentage() / 100 * t.getDistance() * tdata.getFactor());
                 s.setSumTransportationCo2e(s.getSumTransportationCo2e() + t.getCo2e());
             }
             s.setSumAllCo2e(s.getCo2e() + s.getSumProcessingCo2e() + s.getSumTransportationCo2e());
@@ -70,7 +72,7 @@ public class ResultController {
         data.setSumDestinationCo2e((double) 0);
         for (Destination d : data.getDestination()) {
             FactorTransportation ddata = iFactorTransportationService.getByTransportMode(d.getTransportMode());
-            d.setCo2e(d.getDistance() * ddata.getFactor());
+            d.setCo2e(data.getTotalMass() / 1000000 * d.getDestinationPercentage() / 100 * d.getDistance() * ddata.getFactor());
             data.setSumDestinationCo2e(data.getSumDestinationCo2e() + d.getCo2e());
         }
         data.setSumAllCo2e(data.getManufactureCo2e() + data.getElectricityCo2e() + data.getSumSupplyCo2e() + data.getSumDestinationCo2e());
