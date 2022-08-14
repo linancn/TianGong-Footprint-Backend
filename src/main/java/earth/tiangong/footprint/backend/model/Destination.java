@@ -10,7 +10,7 @@ public class Destination {
 
     private Double destinationPercentage;
 
-    private String destinationLocation;
+    private MapLocation destinationLocation;
 
     private String transportMode;
 
@@ -22,8 +22,9 @@ public class Destination {
     // private IFactorTransportationService iFactorTransportationService;
 
     // public void calculate() {
-    //     FactorTransportation data = iFactorTransportationService.getByTransportMode(transportMode);
-    //     co2e = distance * data.getFactor();
+    // FactorTransportation data =
+    // iFactorTransportationService.getByTransportMode(transportMode);
+    // co2e = distance * data.getFactor();
     // }
 
     public String getId() {
@@ -42,11 +43,11 @@ public class Destination {
         this.destinationPercentage = destinationPercentage;
     }
 
-    public String getDestinationLocation() {
+    public MapLocation getDestinationLocation() {
         return destinationLocation;
     }
 
-    public void setDestinationLocation(String destinationLocation) {
+    public void setDestinationLocation(MapLocation destinationLocation) {
         this.destinationLocation = destinationLocation;
     }
 

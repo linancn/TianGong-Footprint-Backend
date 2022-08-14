@@ -44,7 +44,7 @@ public class ResultController {
     @PostMapping("/getResult")
     public ResponseEntity<Project> getResult(@RequestBody Project data) {
 
-        FactorElectricity edata = iFactorElectricityService.getByRegionAndSource(data.getLocation(), data.getElectricitySource());
+        FactorElectricity edata = iFactorElectricityService.getByRegionAndSource(data.getLocation().getName(), data.getElectricitySource());
         data.setElectricityCo2e(data.getElectricity() * data.getRatio() / 100 * edata.getFactor());
 
         data.setTotalMass((double) 0);

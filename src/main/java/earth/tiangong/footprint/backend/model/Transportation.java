@@ -10,7 +10,7 @@ public class Transportation {
 
     private Double supplierPercentage;
 
-    private String supplierLocation;
+    private MapLocation supplierLocation = new MapLocation();
 
     private String transportMode;
 
@@ -42,11 +42,11 @@ public class Transportation {
         this.supplierPercentage = supplierPercentage;
     }
 
-    public String getSupplierLocation() {
+    public MapLocation getSupplierLocation() {
         return supplierLocation;
     }
 
-    public void setSupplierLocation(String supplierLocation) {
+    public void setSupplierLocation(MapLocation supplierLocation) {
         this.supplierLocation = supplierLocation;
     }
 

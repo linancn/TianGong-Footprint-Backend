@@ -11,9 +11,9 @@ import java.util.List;
 public class Project {
     private String projectName;
 
-    private String location;
-
     private Double totalMass;
+
+    private MapLocation location = new MapLocation();
 
     private String electricitySource;
 
@@ -39,17 +39,19 @@ public class Project {
     // private IFactorElectricityService iFactorElectricityService;
 
     // public void calculate() {
-    //     FactorElectricity edata = iFactorElectricityService.getByRegionAndSource(location, electricitySource);
-    //     electricityCo2e = electricity * ratio / 100 * edata.getFactor();
-    //     sumSupplyCo2e = (double) 0;
-    //     for (Supply s : supply) {
-    //         sumSupplyCo2e = sumSupplyCo2e + s.getSumAllCo2e();
-    //     }
-    //     sumDestinationCo2e = (double) 0;
-    //     for (Destination d : destination) {
-    //         sumDestinationCo2e = sumDestinationCo2e + d.getCo2e();
-    //     }
-    //     sumAllCo2e = manufactureCo2e + electricityCo2e + sumSupplyCo2e + sumDestinationCo2e;
+    // FactorElectricity edata =
+    // iFactorElectricityService.getByRegionAndSource(location, electricitySource);
+    // electricityCo2e = electricity * ratio / 100 * edata.getFactor();
+    // sumSupplyCo2e = (double) 0;
+    // for (Supply s : supply) {
+    // sumSupplyCo2e = sumSupplyCo2e + s.getSumAllCo2e();
+    // }
+    // sumDestinationCo2e = (double) 0;
+    // for (Destination d : destination) {
+    // sumDestinationCo2e = sumDestinationCo2e + d.getCo2e();
+    // }
+    // sumAllCo2e = manufactureCo2e + electricityCo2e + sumSupplyCo2e +
+    // sumDestinationCo2e;
     // }
 
     public String getProjectName() {
@@ -60,11 +62,11 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public String getLocation() {
+    public MapLocation getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(MapLocation location) {
         this.location = location;
     }
 
