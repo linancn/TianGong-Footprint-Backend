@@ -1,11 +1,6 @@
 package earth.tiangong.footprint.backend.model;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-
-// import earth.tiangong.footprint.backend.entity.FactorMaterialProcess;
-// import earth.tiangong.footprint.backend.service.IFactorMaterialProcessService;
-
-public class Processing {
+public class Process {
     private String id;
 
     private String processType;
@@ -13,14 +8,6 @@ public class Processing {
     private String processCategory;
 
     private Double co2e;
-
-    // @Autowired
-    // private IFactorMaterialProcessService iFactorMaterialProcessService;
-
-    // public void calculate(String materialType, Double totalMass) {
-    //     FactorMaterialProcess data = iFactorMaterialProcessService.getByProcessType(materialType, processCategory, processType);
-    //     co2e = totalMass * data.getFactor();
-    // }
 
     public String getId() {
         return id;

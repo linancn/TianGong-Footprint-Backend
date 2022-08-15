@@ -9,8 +9,8 @@ import earth.tiangong.footprint.backend.entity.FactorMaterial;
 import earth.tiangong.footprint.backend.entity.FactorMaterialProcess;
 import earth.tiangong.footprint.backend.entity.FactorTransportation;
 import earth.tiangong.footprint.backend.model.Destination;
-import earth.tiangong.footprint.backend.model.Processing;
-import earth.tiangong.footprint.backend.model.Project;
+import earth.tiangong.footprint.backend.model.Process;
+import earth.tiangong.footprint.backend.model.Product;
 import earth.tiangong.footprint.backend.model.Supply;
 import earth.tiangong.footprint.backend.model.Transportation;
 import earth.tiangong.footprint.backend.service.IFactorElectricityService;
@@ -42,7 +42,7 @@ public class ResultController {
     private IFactorTransportationService iFactorTransportationService;
 
     @PostMapping("/getResult")
-    public ResponseEntity<Project> getResult(@RequestBody Project data) {
+    public ResponseEntity<Product> getResult(@RequestBody Product data) {
 
         FactorElectricity edata = iFactorElectricityService.getByRegionAndSource(data.getLocation().getName(), data.getElectricitySource());
         data.setElectricityCo2e(data.getElectricity() * data.getRatio() / 100 * edata.getFactor());
@@ -53,11 +53,11 @@ public class ResultController {
             data.setTotalMass(data.getTotalMass() + s.getTotalMass());
             FactorMaterial sdata = iFactorMaterialService.getByMaterialType(s.getMaterialType());
             s.setCo2e(s.getTotalMass() * sdata.getFactor());
-            s.setSumProcessingCo2e((double) 0);
-            for (Processing p : s.getProcessing()) {
+            s.setSumProcessCo2e((double) 0);
+            for (Process p : s.getProcess()) {
                 FactorMaterialProcess pdata = iFactorMaterialProcessService.getByProcessType(s.getMaterialType(), p.getProcessCategory(), p.getProcessType());
                 p.setCo2e(s.getTotalMass() * pdata.getFactor());
-                s.setSumProcessingCo2e(s.getSumProcessingCo2e() + p.getCo2e());
+                s.setSumProcessCo2e(s.getSumProcessCo2e() + p.getCo2e());
             }
             s.setSumTransportationCo2e((double) 0);
             for (Transportation t : s.getTransportation()) {
@@ -65,7 +65,7 @@ public class ResultController {
                 t.setCo2e(s.getTotalMass() / 1000000 * t.getSupplierPercentage() / 100 * t.getDistance() * tdata.getFactor());
                 s.setSumTransportationCo2e(s.getSumTransportationCo2e() + t.getCo2e());
             }
-            s.setSumAllCo2e(s.getCo2e() + s.getSumProcessingCo2e() + s.getSumTransportationCo2e());
+            s.setSumAllCo2e(s.getCo2e() + s.getSumProcessCo2e() + s.getSumTransportationCo2e());
             data.setSumSupplyCo2e(data.getSumSupplyCo2e() + s.getSumAllCo2e());
         }
 

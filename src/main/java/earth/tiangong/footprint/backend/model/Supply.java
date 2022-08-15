@@ -3,11 +3,6 @@ package earth.tiangong.footprint.backend.model;
 import java.util.ArrayList;
 import java.util.List;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-
-// import earth.tiangong.footprint.backend.entity.FactorMaterial;
-// import earth.tiangong.footprint.backend.service.IFactorMaterialService;
-
 public class Supply {
     private String id;
 
@@ -23,32 +18,15 @@ public class Supply {
 
     private Double co2e;
 
-    private Double sumProcessingCo2e;
+    private Double sumProcessCo2e;
 
     private Double sumTransportationCo2e;
 
     private Double sumAllCo2e;
 
-    private List<Processing> processing = new ArrayList<Processing>();
+    private List<Process> process = new ArrayList<Process>();
 
     private List<Transportation> transportation = new ArrayList<Transportation>();
-
-    // @Autowired
-    // private IFactorMaterialService iFactorMaterialService;
-
-    // public void calculate() {
-    //     FactorMaterial data = iFactorMaterialService.getByMaterialType(materialType);
-    //     co2e = totalMass * data.getFactor();
-    //     sumProcessingCo2e = (double) 0;
-    //     for (Processing p : processing) {
-    //         sumProcessingCo2e = sumProcessingCo2e + p.getCo2e();
-    //     }
-    //     sumTransportationCo2e = (double) 0;
-    //     for (Transportation t : transportation) {
-    //         sumTransportationCo2e = sumTransportationCo2e + t.getCo2e();
-    //     }
-    //     sumAllCo2e = co2e + sumProcessingCo2e + sumTransportationCo2e;
-    // }
 
     public String getId() {
         return id;
@@ -98,12 +76,12 @@ public class Supply {
         this.totalMass = totalMass;
     }
 
-    public List<Processing> getProcessing() {
-        return processing;
+    public List<Process> getProcess() {
+        return process;
     }
 
-    public void setProcessing(List<Processing> processing) {
-        this.processing = processing;
+    public void setProcess(List<Process> process) {
+        this.process = process;
     }
 
     public List<Transportation> getTransportation() {
@@ -122,12 +100,12 @@ public class Supply {
         this.co2e = co2e;
     }
 
-    public Double getSumProcessingCo2e() {
-        return sumProcessingCo2e;
+    public Double getSumProcessCo2e() {
+        return sumProcessCo2e;
     }
 
-    public void setSumProcessingCo2e(Double sumProcessingCo2e) {
-        this.sumProcessingCo2e = sumProcessingCo2e;
+    public void setSumProcessCo2e(Double sumProcessCo2e) {
+        this.sumProcessCo2e = sumProcessCo2e;
     }
 
     public Double getSumTransportationCo2e() {

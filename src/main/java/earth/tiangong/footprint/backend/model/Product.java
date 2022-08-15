@@ -3,13 +3,8 @@ package earth.tiangong.footprint.backend.model;
 import java.util.ArrayList;
 import java.util.List;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-
-// import earth.tiangong.footprint.backend.entity.FactorElectricity;
-// import earth.tiangong.footprint.backend.service.IFactorElectricityService;
-
-public class Project {
-    private String projectName;
+public class Product {
+    private String productName;
 
     private Double totalMass;
 
@@ -35,31 +30,12 @@ public class Project {
 
     private List<Destination> destination = new ArrayList<Destination>();
 
-    // @Autowired
-    // private IFactorElectricityService iFactorElectricityService;
-
-    // public void calculate() {
-    // FactorElectricity edata =
-    // iFactorElectricityService.getByRegionAndSource(location, electricitySource);
-    // electricityCo2e = electricity * ratio / 100 * edata.getFactor();
-    // sumSupplyCo2e = (double) 0;
-    // for (Supply s : supply) {
-    // sumSupplyCo2e = sumSupplyCo2e + s.getSumAllCo2e();
-    // }
-    // sumDestinationCo2e = (double) 0;
-    // for (Destination d : destination) {
-    // sumDestinationCo2e = sumDestinationCo2e + d.getCo2e();
-    // }
-    // sumAllCo2e = manufactureCo2e + electricityCo2e + sumSupplyCo2e +
-    // sumDestinationCo2e;
-    // }
-
-    public String getProjectName() {
-        return projectName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public MapLocation getLocation() {
