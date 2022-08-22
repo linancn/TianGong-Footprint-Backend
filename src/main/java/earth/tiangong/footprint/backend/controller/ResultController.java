@@ -61,7 +61,7 @@ public class ResultController {
             }
             s.setSumTransportationCo2e((double) 0);
             for (Transportation t : s.getTransportation()) {
-                FactorTransportation tdata = iFactorTransportationService.getByTransportMode(t.getTransportMode());
+                FactorTransportation tdata = iFactorTransportationService.getByTransportMode(t.getTransportMode().getName());
                 t.setCo2e(s.getTotalMass() / 1000000 * t.getSupplierPercentage() / 100 * t.getDistance() * tdata.getFactor());
                 s.setSumTransportationCo2e(s.getSumTransportationCo2e() + t.getCo2e());
             }
@@ -71,7 +71,7 @@ public class ResultController {
 
         data.setSumDestinationCo2e((double) 0);
         for (Destination d : data.getDestination()) {
-            FactorTransportation ddata = iFactorTransportationService.getByTransportMode(d.getTransportMode());
+            FactorTransportation ddata = iFactorTransportationService.getByTransportMode(d.getTransportMode().getName());
             d.setCo2e(data.getTotalMass() / 1000000 * d.getDestinationPercentage() / 100 * d.getDistance() * ddata.getFactor());
             data.setSumDestinationCo2e(data.getSumDestinationCo2e() + d.getCo2e());
         }

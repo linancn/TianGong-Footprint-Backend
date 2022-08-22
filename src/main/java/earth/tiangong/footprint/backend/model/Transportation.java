@@ -12,19 +12,11 @@ public class Transportation {
 
     private MapLocation supplierLocation = new MapLocation();
 
-    private String transportMode;
+    private TransportMode transportMode;
 
     private Double distance;
 
     private Double co2e;
-
-    // @Autowired
-    // private IFactorTransportationService iFactorTransportationService;
-
-    // public void calculate() {
-    //     FactorTransportation data = iFactorTransportationService.getByTransportMode(transportMode);
-    //     co2e = distance * data.getFactor();
-    // }
 
     public String getId() {
         return id;
@@ -50,11 +42,11 @@ public class Transportation {
         this.supplierLocation = supplierLocation;
     }
 
-    public String getTransportMode() {
+    public TransportMode getTransportMode() {
         return transportMode;
     }
 
-    public void setTransportMode(String transportMode) {
+    public void setTransportMode(TransportMode transportMode) {
         this.transportMode = transportMode;
     }
 

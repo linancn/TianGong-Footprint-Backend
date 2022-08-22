@@ -1,10 +1,5 @@
 package earth.tiangong.footprint.backend.model;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-
-// import earth.tiangong.footprint.backend.entity.FactorTransportation;
-// import earth.tiangong.footprint.backend.service.IFactorTransportationService;
-
 public class Destination {
     private String id;
 
@@ -12,20 +7,11 @@ public class Destination {
 
     private MapLocation destinationLocation;
 
-    private String transportMode;
+    private TransportMode transportMode;
 
     private Double distance;
 
     private Double co2e;
-
-    // @Autowired
-    // private IFactorTransportationService iFactorTransportationService;
-
-    // public void calculate() {
-    // FactorTransportation data =
-    // iFactorTransportationService.getByTransportMode(transportMode);
-    // co2e = distance * data.getFactor();
-    // }
 
     public String getId() {
         return id;
@@ -51,11 +37,11 @@ public class Destination {
         this.destinationLocation = destinationLocation;
     }
 
-    public String getTransportMode() {
+    public TransportMode getTransportMode() {
         return transportMode;
     }
 
-    public void setTransportMode(String transportMode) {
+    public void setTransportMode(TransportMode transportMode) {
         this.transportMode = transportMode;
     }
 
